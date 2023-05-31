@@ -1,8 +1,7 @@
-<div *ngFor="let res of result.results">
-    <p>{{ res.id }}</p>
-  <p>{{ res.author.username }}</p>
-  <p>{{ res.body }}</p>
-  <p>{{ res.likes_count }}</p>
-</div>
+<div *ngFor="let post of posts">
+  <p>{{post.author.username}}</p>
+  <p>{{post.body}}</p>
+  <p>{{post.edited}}</p>
+  <p>{{post.likes_count}}</p>
 
-{{result}}
+</div>
