@@ -7,6 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
+
+//Angular Material
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +20,10 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
+    //Angular Material
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
