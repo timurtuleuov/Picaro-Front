@@ -1,7 +1,13 @@
-<div *ngFor="let post of posts">
-  <p>{{post.author.username}}</p>
-  <p>{{post.body}}</p>
-  <p>{{post.edited}}</p>
-  <p>{{post.likes_count}}</p>
-
+<div class="post-list" *ngFor="let post of posts">
+  <div class="post-list-author-info">
+    <div class="avatar">{{post.author.avatar}}</div>
+    <div class="username">{{post.author.username}}</div>
+  </div>
+  <div class="post-list-body">
+    {{post.body}}
+  </div>
+  <div class="post-list-stats">
+    <div class="likes">{{post.likes_count}}</div>
+    <div class="date">{{post.created}}</div>
+  </div>
 </div>

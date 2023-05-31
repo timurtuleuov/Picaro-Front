@@ -4,7 +4,7 @@ import { Post, PostResponse } from 'src/interfaces/post';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.sass']
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit{
   posts: any;
