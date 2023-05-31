@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit{
     this.postService.getData().subscribe((data) => {
       this.posts = data;
 
-      console.log(this.posts); // Помещаем вывод в консоль внутрь колбэка
+      console.log(this.posts); 
     });
   }
 }
