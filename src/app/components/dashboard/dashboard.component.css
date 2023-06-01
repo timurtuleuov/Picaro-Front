@@ -82,6 +82,12 @@ img {
   margin-right: 4px;
 }
 
+mat-progress-spinner {
+  position: absolute;
+  left: 45%;
+  top: 45%;
+}
+
 @media screen and (max-width:430px){
   body {
     padding-left: 20px;
@@ -105,5 +111,10 @@ img {
 }
 .tweet-info-counts div {
   margin-right: 10px;
+}
+mat-progress-spinner {
+  position: absolute;
+  left: 40%;
+  top: 40%;
 }
 }

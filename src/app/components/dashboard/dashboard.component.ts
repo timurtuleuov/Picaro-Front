@@ -8,16 +8,18 @@ import { Post, PostResponse } from 'src/interfaces/post';
 })
 export class DashboardComponent implements OnInit{
   posts: any;
-  
+  dataLoaded = false;
+  isLoading = true;
 
   constructor(private postService: PostService){}
 
   ngOnInit() {
     
+
     this.postService.getData().subscribe((data) => {
       this.posts = data;
-
-      console.log(this.posts); 
+      this.isLoading = false;
+      this.dataLoaded = true;
     });
   }
 }
