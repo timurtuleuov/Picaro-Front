@@ -1,3 +1,16 @@
 .spacer {
 	flex: 1 1 auto;
   }
+.brand a{
+	color: white;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: xx-large;
+}
+.login {
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+	margin: 0 10px;
+	
+}
