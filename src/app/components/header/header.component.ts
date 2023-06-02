@@ -6,7 +6,7 @@ import { LoginService } from 'src/services/login.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
-    username: any;
+  
     constructor(public loginService: LoginService){}
     ngOnInit(): void {
     }

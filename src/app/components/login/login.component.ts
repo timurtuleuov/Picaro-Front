@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from 'src/services/login.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit{
 
   
   
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private router: Router) {
     
   }
   ngOnInit() {
@@ -35,12 +36,11 @@ export class LoginComponent implements OnInit{
     console.log(this.loginGroup.value.loginEmail, this.loginGroup.value.loginPassword)
     this.loginService.login(this.loginGroup.value.loginEmail, this.loginGroup.value.loginPassword).subscribe(
       response => {
-        console.log(response);
+        this.loginService.user = response.user.username;
+        console.log(this.loginService.user)
         localStorage.setItem('data', JSON.stringify(response));
         this.loginService.isLoged = true;
-        this.loginService.user = localStorage.getItem('data');
-        console.log(this.loginService.user.user.username)  
-        console.log(this.loginService.isLoged)
+        this.router.navigate(['/'])
       },
       error => {
         console.error(error);
@@ -61,11 +61,13 @@ export class LoginComponent implements OnInit{
       this.signupGroup.value.signupFName, this.signupGroup.value.signupLName, this.signupGroup.value.signupPassword)
       .subscribe(
       response => {
+        
         // Handle the response data here
         console.log(response);
         localStorage.setItem('data', JSON.stringify(response));
         this.loginService.isLoged = true;
         console.log(this.loginService.isLoged)
+
       },
       error => {
         console.error(error);
