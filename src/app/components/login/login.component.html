@@ -12,11 +12,11 @@
         </div>
 
         <div class="login">
-            <form>
-                <label for="chk" aria-hidden="true">Login</label>
-                <input type="email" name="email" placeholder="Email" required="">
-                <input type="password" name="pswd" placeholder="Password" required="">
-                <button>Login</button>
+            <form [formGroup]="loginGroup" (submit)="onLogin()">
+                <label for="chk" >Login</label>
+                <input type="email" name="email" placeholder="Email" required="" [(ngModel)]="email" formControlName="loginEmail">
+                <input type="password" name="pswd" placeholder="Password" required="" [(ngModel)]="password" formControlName="loginPassword">
+                <button type="submit">Login</button>
             </form>
-        </div>
+        </div>        
 </div>

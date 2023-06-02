@@ -83,9 +83,9 @@ img {
 }
 
 mat-progress-spinner {
-  display: block;
   left: 45%;
-  top: 45%;
+  top: 25%;
+  margin-bottom: 300px;
 }
 
 @media screen and (max-width:430px){
