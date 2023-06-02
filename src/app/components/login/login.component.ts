@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit{
   //   "password": "123456789"
   //   }
   loginGroup!: FormGroup;
+  signupGroup!: FormGroup;
 
   
   
@@ -20,10 +21,11 @@ export class LoginComponent implements OnInit{
   }
   ngOnInit() {
     // this.loginService.login(this.user);
-    this.buildForm();
-    console.log(this.buildForm())
+    this.buildLoginForm();
+    console.log(this.buildLoginForm())
+    this.buildSignupForm();
   }
-  buildForm() {
+  buildLoginForm() {
     this.loginGroup = new FormGroup({
       'loginEmail': new FormControl('', [Validators.required, Validators.email]),
       'loginPassword': new FormControl('', Validators.required)
@@ -35,6 +37,7 @@ export class LoginComponent implements OnInit{
       response => {
         // Handle the response data here
         console.log(response);
+        localStorage.setItem('data', JSON.stringify(response));
       },
       error => {
         // Handle any error that occurred during the login process
@@ -42,5 +45,28 @@ export class LoginComponent implements OnInit{
       }
     );
   }
-
+  buildSignupForm(){
+    this.signupGroup = new FormGroup({
+      'signupEmail': new FormControl('', [Validators.required, Validators.email]),
+      'signupUsername': new FormControl('', Validators.required),
+      'signupFName': new FormControl('', Validators.required),
+      'signupLName': new FormControl('', Validators.required),
+      'signupPassword': new FormControl('', Validators.required)
+    });
+  }
+  onSignup():void{
+    this.loginService.signup(this.signupGroup.value.signupEmail, this.signupGroup.value.signupUsername, 
+      this.signupGroup.value.signupFName, this.signupGroup.value.signupLName, this.signupGroup.value.signupPassword)
+      .subscribe(
+      response => {
+        // Handle the response data here
+        console.log(response);
+        localStorage.setItem('data', JSON.stringify(response));
+      },
+      error => {
+        // Handle any error that occurred during the login process
+        console.error(error);
+      }
+    );
+  }
 }

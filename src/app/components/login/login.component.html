@@ -2,12 +2,14 @@
     <input type="checkbox" id="chk" aria-hidden="true">
 
         <div class="signup">
-            <form>
+            <form [formGroup]="signupGroup" (submit)="onSignup()"> 
                 <label for="chk" aria-hidden="true">Sign up</label>
-                <input type="text" name="txt" placeholder="User name" required="">
-                <input type="email" name="email" placeholder="Email" required="">
-                <input type="password" name="pswd" placeholder="Password" required="">
-                <button>Sign up</button>
+                <input type="email" name="email" placeholder="Email" required="" formControlName="signupEmail">
+                <input type="text" name="txt" placeholder="Username" required="" formControlName="signupUsername">
+                <input type="text" name="txt" placeholder="First Name" required="" formControlName="signupFName">
+                <input type="text" name="txt" placeholder="Last Name" required="" formControlName="signupLName">
+                <input type="password" name="pswd" placeholder="Password" required="" formControlName="signupPassword">
+                <button type="submit">Sign up</button>
             </form>
         </div>
 
