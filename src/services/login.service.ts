@@ -9,6 +9,7 @@ export class LoginService {
   
   constructor(private http: HttpClient) { }
   isLoged: boolean = false;
+  user:any;
   login(email: string, password: string): Observable<any> {
     return this.http.post(
       'http://localhost:8000/api/auth/login/', {email, password}) as Observable<any>;

@@ -9,7 +9,6 @@ export class HeaderComponent implements OnInit{
     username: any;
     constructor(public loginService: LoginService){}
     ngOnInit(): void {
-      this.username = localStorage.getItem('username')
     }
     
 

@@ -39,6 +39,8 @@ export class LoginComponent implements OnInit{
         console.log(response);
         localStorage.setItem('data', JSON.stringify(response));
         this.loginService.isLoged = true;
+        this.loginService.user = localStorage.getItem('data');
+        console.log(this.loginService.user.user.username)  
         console.log(this.loginService.isLoged)
       },
       error => {
