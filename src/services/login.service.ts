@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class LoginService {
   
   constructor(private http: HttpClient) { }
-
+  isLoged: boolean = false;
   login(email: string, password: string): Observable<any> {
     return this.http.post(
       'http://localhost:8000/api/auth/login/', {email, password}) as Observable<any>;

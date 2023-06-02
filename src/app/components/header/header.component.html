@@ -12,8 +12,14 @@
     <mat-toolbar color="primary">
         <span class="brand"><a routerLink="/">InstaChlam</a></span>
         <span class="spacer"></span>
-        <div class="login">
+
+        <div class="login" *ngIf="!this.loginService.isLoged">
             <a  routerLink="/login" class="login"><mat-icon class="icon">fingerprint</mat-icon>Authorization</a>
+
+        </div>
+        <div class="login" *ngIf="this.loginService.isLoged">
+            
+            Hello {{username.username}}
 
         </div>
         

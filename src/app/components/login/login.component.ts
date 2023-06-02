@@ -38,6 +38,8 @@ export class LoginComponent implements OnInit{
         // Handle the response data here
         console.log(response);
         localStorage.setItem('data', JSON.stringify(response));
+        this.loginService.isLoged = true;
+        console.log(this.loginService.isLoged)
       },
       error => {
         // Handle any error that occurred during the login process
@@ -62,6 +64,8 @@ export class LoginComponent implements OnInit{
         // Handle the response data here
         console.log(response);
         localStorage.setItem('data', JSON.stringify(response));
+        this.loginService.isLoged = true;
+        console.log(this.loginService.isLoged)
       },
       error => {
         // Handle any error that occurred during the login process
