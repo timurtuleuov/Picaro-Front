@@ -18,5 +18,8 @@ export class PostService {
     return this.http.get<Post[]>(this.url);
     
   }
+  // getPostById(): Observable<Post[]> {
+  //   return this.http.get<Post
+  // }
   
 }
