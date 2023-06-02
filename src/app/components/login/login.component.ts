@@ -12,8 +12,7 @@ export class LoginComponent implements OnInit{
   //   "password": "123456789"
   //   }
   loginGroup!: FormGroup;
-  email = "";
-  password = "";
+
   
   
   constructor(private loginService: LoginService) {
@@ -32,5 +31,16 @@ export class LoginComponent implements OnInit{
   }
   onLogin():void{
     console.log(this.loginGroup.value.loginEmail, this.loginGroup.value.loginPassword)
+    this.loginService.login(this.loginGroup.value.loginEmail, this.loginGroup.value.loginPassword).subscribe(
+      response => {
+        // Handle the response data here
+        console.log(response);
+      },
+      error => {
+        // Handle any error that occurred during the login process
+        console.error(error);
+      }
+    );
   }
+
 }
