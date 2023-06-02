@@ -83,7 +83,7 @@ img {
 }
 
 mat-progress-spinner {
-  position: absolute;
+  display: block;
   left: 45%;
   top: 45%;
 }
@@ -113,8 +113,9 @@ mat-progress-spinner {
   margin-right: 10px;
 }
 mat-progress-spinner {
-  position: absolute;
+  position: relative;
   left: 40%;
-  top: 40%;
+  top: 20%;
+  margin-bottom: 300px;
 }
 }

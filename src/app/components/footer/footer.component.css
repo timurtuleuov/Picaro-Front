@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
 body {
+    display: block;
     font-family: 'Muli', sans-serif;
     height: 100% !important;
     background-color: #fff !important;
@@ -91,10 +92,13 @@ li {
 
 .row-1 {
     margin-bottom: calc(100px + (150 - 100) * ((100vw - 360px) / (1600 - 360))) !important
-}
-/* @media screen and (max-width:430px){
-    #columns{
-        flex-direction: column;
-        background-color: #000;
+} 
+@media screen and (max-width:430px){
+    #div{
+        display: inline-block;
     }
-} */
+    #columns{
+        flex-direction: row;
+
+    }
+}
