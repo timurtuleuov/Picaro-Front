@@ -18,9 +18,9 @@
 
         </div>
         <div class="login" *ngIf="this.loginService.isLoged">
-            <a onclick="slugIt(this.loginService.user)">
+            <button (click)="slugIt(this.loginService.user)">
             Hello {{this.loginService.user}}
-            </a>
+            </button>
         </div>
         
       </mat-toolbar>

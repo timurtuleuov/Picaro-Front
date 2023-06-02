@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit{
     }
     slugIt(username: string){
       this.slug_name = slug(username)
-     this.router.navigate(['/user'], this.slug_name)
+     this.router.navigate(['/user', this.slug_name])
     }
 
 }
