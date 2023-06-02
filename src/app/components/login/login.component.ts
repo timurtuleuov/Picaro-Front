@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit{
     console.log(this.loginGroup.value.loginEmail, this.loginGroup.value.loginPassword)
     this.loginService.login(this.loginGroup.value.loginEmail, this.loginGroup.value.loginPassword).subscribe(
       response => {
-        // Handle the response data here
         console.log(response);
         localStorage.setItem('data', JSON.stringify(response));
         this.loginService.isLoged = true;
@@ -44,7 +43,6 @@ export class LoginComponent implements OnInit{
         console.log(this.loginService.isLoged)
       },
       error => {
-        // Handle any error that occurred during the login process
         console.error(error);
       }
     );
@@ -70,7 +68,6 @@ export class LoginComponent implements OnInit{
         console.log(this.loginService.isLoged)
       },
       error => {
-        // Handle any error that occurred during the login process
         console.error(error);
       }
     );
