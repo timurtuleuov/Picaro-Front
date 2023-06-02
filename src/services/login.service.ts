@@ -16,7 +16,7 @@ export class LoginService {
 
   signup(email: string, username: string, firstName:string, lastName: string, password: string): Observable<any> {
     return this.http.post(
-      'http://localhost:8000/api/auth/login/', {email, username, firstName, lastName, password}) as Observable<any>;
+      'http://localhost:8000/api/auth/register/', {"email": email, "username":username, "first_name": firstName, "last_name":lastName, "password": password}) as Observable<any>;
   }
 
   
