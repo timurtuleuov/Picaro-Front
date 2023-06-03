@@ -37,8 +37,17 @@ export class LoginComponent implements OnInit{
     this.loginService.login(this.loginGroup.value.loginEmail, this.loginGroup.value.loginPassword).subscribe(
       response => {
         this.loginService.user = response.user.username;
-        console.log(this.loginService.user)
-        localStorage.setItem('data', JSON.stringify(response));
+
+
+        for (const key in response) {
+          if (response.hasOwnProperty(key)) {
+            const value = response[key];
+        
+            // Сохранение каждой пары ключ-значение в localStorage
+            localStorage.setItem(key, value);
+          }
+        }
+
         this.loginService.isLoged = true;
         this.router.navigate(['/'])
       },
@@ -62,9 +71,14 @@ export class LoginComponent implements OnInit{
       .subscribe(
       response => {
         
-        // Handle the response data here
-        console.log(response);
-        localStorage.setItem('data', JSON.stringify(response));
+        for (const key in response) {
+          if (response.hasOwnProperty(key)) {
+            const value = response[key];
+        
+            // Сохранение каждой пары ключ-значение в localStorage
+            localStorage.setItem(key, value);
+          }
+        }
         this.loginService.isLoged = true;
         console.log(this.loginService.isLoged)
 
