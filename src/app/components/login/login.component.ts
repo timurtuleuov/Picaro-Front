@@ -41,7 +41,12 @@ export class LoginComponent implements OnInit{
 
         for (const key in response) {
           if (response.hasOwnProperty(key)) {
-            const value = response[key];
+            
+            let value = response[key];
+    
+            if (typeof value === 'object') {
+              value = JSON.stringify(value);
+            }
         
             // Сохранение каждой пары ключ-значение в localStorage
             localStorage.setItem(key, value);
