@@ -20,7 +20,8 @@ export class HeaderComponent implements OnInit{
      this.router.navigate(['/user', this.slug_name])
     }
     userUnparse: string | any = localStorage.getItem('user')
-    user = JSON.stringify(this.userUnparse);
+    user = JSON.parse(this.userUnparse)
+    username = this.user.username
     // username = this.user.username;
     checkLocalStorage(): boolean {
       if (localStorage.getItem('acces') == null) {

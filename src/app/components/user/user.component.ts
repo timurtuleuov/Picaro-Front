@@ -10,7 +10,7 @@ import { LoginService } from 'src/services/login.service';
 export class UserComponent implements OnInit{
   userInfo: any;
   constructor(private loginService: LoginService){
-    this.userInfo = localStorage.getItem('data');
+    this.userInfo = localStorage.getItem('user');
     this.userInfo = JSON.parse(this.userInfo);
   }
 
@@ -19,8 +19,8 @@ export class UserComponent implements OnInit{
   userPosts!: object;
   ngOnInit(){
     console.log(this.userInfo)
-    this.username = this.userInfo.user.username;
-    this.userBio = this.userInfo.user.bio;
+    this.username = this.userInfo.username;
+    this.userBio = this.userInfo.bio;
     
   }
 }
