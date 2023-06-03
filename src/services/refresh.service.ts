@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,10 @@ export class RefreshService {
 
   removeToken(): void {
     localStorage.removeItem(this.tokenKey);
+  }
+
+  refreshToken(): void {
+
   }
   constructor() { }
 }
