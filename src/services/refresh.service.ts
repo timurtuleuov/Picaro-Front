@@ -5,9 +5,17 @@ import { Injectable } from '@angular/core';
 })
 export class RefreshService {
   private tokenKey = 'access';
-  private tokenData = localStorage.getItem('data')
-  // getToken(): string | null {
-  //   return localStorage.get
-  // }
+  
+  getToken(): string | null {
+    return localStorage.getItem(this.tokenKey);
+  }
+
+  setToken(token: string): void {
+    localStorage.setItem(this.tokenKey, token);
+  }
+
+  removeToken(): void {
+    localStorage.removeItem(this.tokenKey);
+  }
   constructor() { }
 }
