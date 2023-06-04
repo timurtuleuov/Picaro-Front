@@ -19,7 +19,7 @@
 <ng-container *ngIf="dataLoaded; else loadingSpinner">
 <div class="tweet-wrap" *ngFor="let post of posts">
   <div class="tweet-header">
-    <img src="../../../assets/avatar/{{avatar}}" alt="" class="avator">
+    <img src="../../../assets/avatar{{avatar}}" alt="" class="avator">
     <div class="tweet-header-info">
       {{post.author.username}} <span>@{{post.author.email}}</span><span>. {{post.created | date: 'mediumDate'}}
 </span>
@@ -28,9 +28,10 @@
     </div>
     
   </div>
-  <div class="tweet-img-wrap">
-    <img src="https://pbs.twimg.com/media/Dgti2h0WkAEUPmT.png" alt="" class="tweet-img">
+  <div class="tweet-img-wrap" *ngIf="post.cover !== null">
+    <img src="../../../assets/covers/{{post.cover | slice: 29}}" alt="" class="tweet-img">
   </div>
+ 
   <div class="tweet-info-counts">
     
     <div class="comments">
