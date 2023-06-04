@@ -8,39 +8,37 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
-    slug_name!: string;
-    isLogged: any;
+  slug!: string;
 
-    userUnparse: any;
-    user: any;
-    username: any;
+  slug_name!: string;
+  isLogged: any;
+
+  userUnparse: any;
+  user: any;
+  username: any;
 
 
-    constructor(public loginService: LoginService, private router: Router){}
-    ngOnInit(): void {
-      this.checkLocalStorage();
-      console.log(this.userUnparse)
-    }
-    slugIt(username: string){
-      this.slug_name = slug(username)
+  constructor(public loginService: LoginService, private router: Router){}
+  ngOnInit(): void {
+    this.checkLocalStorage();
+  }
+  slugIt(){
+    this.slug_name = slug(this.slug)
      this.router.navigate(['/user', this.slug_name])
     }
    
     
     // username = this.user.username;
     checkLocalStorage(): void {
-      if (localStorage.getItem('acces') === null) {
+      if (localStorage === null) {
         this.isLogged = false;
       } else {
-        this.userUnparse = localStorage.getItem('acces');
-    console.log(this.userUnparse);
-    this.user = JSON.parse(this.userUnparse);
-    console.log(this.user);
-
-    this.username = this.user.username;
-    console.log(this.username);
-
-    this.isLogged = true;
+        this.userUnparse = localStorage.getItem('user');
+        this.user = JSON.parse(this.userUnparse);
+        this.username = this.user.username;
+        this.slug = this.user.slug;
+        
+        this.isLogged = true;
       }
     }
     
