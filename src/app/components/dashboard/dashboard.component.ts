@@ -10,8 +10,13 @@ export class DashboardComponent implements OnInit{
   posts: any;
   dataLoaded = false;
   isLoading = true;
-
-  constructor(private postService: PostService){}
+  userInfo: any;
+  avatar: any;
+  constructor(private postService: PostService){
+    this.userInfo = localStorage.getItem('user');
+    this.userInfo = JSON.parse(this.userInfo);
+    this.avatar = this.userInfo.avatar;
+  }
 
   ngOnInit() {
     
