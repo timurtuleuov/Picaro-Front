@@ -9,17 +9,19 @@ import { Post } from 'src/interfaces/post';
 })
 export class PostService {
 
-  url = "http://localhost:8000/api/post/";
+  
 
   constructor(private http: HttpClient) { 
     this.getData();
   }
   getData(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.url);
+    const url = "http://localhost:8000/api/post/";
+    return this.http.get<Post[]>(url);
     
   }
-  // getPostById(): Observable<Post[]> {
-  //   return this.http.get<Post
-  // }
+  getPostByUser(user_id: string): Observable<Post[]> {
+    const url = `http://localhost:8000/api/user/${user_id}/posts/`;
+    return this.http.get<Post[]>(url);
+  }
   
 }

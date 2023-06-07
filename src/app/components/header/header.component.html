@@ -1,26 +1,14 @@
-<!-- <div class="container">
-    <div class="cont-bar">
-    <div class="l-bar">
-        <img src="https://pngimg.com/uploads/vkontakte/vkontakte_PNG14.png" alt="">
-        <input type="text" placeholder="Поиск" id="serch">
+<mat-toolbar color="primary">
+    <span class="brand"><a routerLink="/">Picaro</a></span>
+    <span class="spacer"></span>
+    
+    <div class="login" *ngIf="!this.isLogged">
+        <a  routerLink="/login" class="login"><mat-icon class="icon">fingerprint</mat-icon>Authorization</a>
+
     </div>
-    <div class="r-bar"><a href="">Switch to English</a></div>
-</div>
-</div>
-
-<div class="container"> -->
-    <mat-toolbar color="primary">
-        <span class="brand"><a routerLink="/">Picaro</a></span>
-        <span class="spacer"></span>
-
-        <div class="login" *ngIf="!this.isLogged">
-            <a  routerLink="/login" class="login"><mat-icon class="icon">fingerprint</mat-icon>Authorization</a>
-
-        </div>
-        <div class="login" *ngIf="this.isLogged">
-            <button (click)="slugIt()">
+    <div class="login" *ngIf="this.isLogged">
+        <button (click)="slugIt()">
             Hello {{username}}
-            </button>
-        </div>
-        
-      </mat-toolbar>
+        </button>
+    </div>        
+</mat-toolbar>
