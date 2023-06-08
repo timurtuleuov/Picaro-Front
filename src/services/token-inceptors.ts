@@ -53,13 +53,12 @@ export class TokenInterceptor implements HttpInterceptor {
 }
 
 function shouldApplyInterceptor(request: HttpRequest<any>): boolean {
-  // Exclude URLs where the bearer token should not be added
   if (request.url.includes('http://localhost:8000/api/auth/login/')) {
-    return false; // Ignore applying the interceptor for this URL
+    return false; 
   }
   if (request.url.includes('http://localhost:8000/api/post/')) {
-    return false; // Ignore applying the interceptor for this URL
+    return false; 
   }
 
-  return true; // Apply the interceptor for all other URLs
+  return true; 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/services/post.service';
-import { Post, PostResponse } from 'src/interfaces/post';
+import { Post } from 'src/interfaces/post';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
