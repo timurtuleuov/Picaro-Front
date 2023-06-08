@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/services/login.service';
+import { PostService } from 'src/services/post.service';
+
 
 
 @Component({
@@ -9,7 +10,10 @@ import { LoginService } from 'src/services/login.service';
 })
 export class UserComponent implements OnInit{
   userInfo: any;
-  constructor(private loginService: LoginService){
+  posts: any;
+  dataLoaded = false;
+  isLoading = true;
+  constructor(private postService: PostService){
     this.userInfo = localStorage.getItem('user');
     this.userInfo = JSON.parse(this.userInfo);
   }
@@ -22,6 +26,13 @@ export class UserComponent implements OnInit{
     this.username = this.userInfo.username;
     this.userBio = this.userInfo.bio;
     this.avatar = this.userInfo.avatar;
+
+    this.postService.getPostByUser(this.userInfo.id).subscribe((data) => {
+      this.posts = data;
+      console.log(this.posts)
+      this.isLoading = false;
+      this.dataLoaded = true;
+    });
     
   }
 }

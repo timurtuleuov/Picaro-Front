@@ -14,10 +14,11 @@ export class DashboardComponent implements OnInit{
   avatar: any;
 
   constructor(private postService: PostService){
+    if (localStorage !== null){
     this.userInfo = localStorage.getItem('user');
     this.userInfo = JSON.parse(this.userInfo);
     this.avatar = this.userInfo.avatar;
-
+    }
   }
 
   ngOnInit() {

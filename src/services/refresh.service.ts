@@ -10,7 +10,7 @@ export class RefreshService {
   private tokenKey: string | any = localStorage.getItem('access');
   
   getToken(): string | null {
-    return localStorage.getItem(this.tokenKey);
+    return localStorage.getItem('access');
   }
 
   setToken(token: string): void {
@@ -20,9 +20,11 @@ export class RefreshService {
   removeToken(): void {
     localStorage.removeItem(this.tokenKey);
   }
-
-  getRefreshToken(refreshKey: string | null) {
-    return this.http.post('http://localhost:8000/api/auth/refresh', {refreshKey}) as Observable<any>
+  getRefreshToken(): string | null {
+    return localStorage.getItem('refresh')
+  }
+  refreshToken(refreshKey: string | null) {
+    return this.http.post('http://localhost:8000/api/auth/refresh', {refresh: refreshKey}) as Observable<any>
   }
   
 }
