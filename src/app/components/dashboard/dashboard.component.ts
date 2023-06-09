@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/services/post.service';
 import { Post } from 'src/interfaces/post';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -20,7 +22,17 @@ export class DashboardComponent implements OnInit{
     this.avatar = this.userInfo.avatar;
     }
   }
-
+  sendPostGroup!: FormGroup;
+  buildSendPostForm() {
+    this.sendPostGroup = new FormGroup({
+      'postText': new FormControl('', ),
+      'postImage': new FormControl('', )
+    });
+  }
+  onSend():void{
+    console.log(this.sendPostGroup.value.postText);
+  console.log(this.sendPostGroup.value.postImage);
+  }
   ngOnInit() {
     
 

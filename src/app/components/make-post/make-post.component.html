@@ -1,10 +1,10 @@
-<form class="make-post">
+<form class="make-post" [formGroup]="sendPostGroup" (submit)="onSend()">
     <div class="form-group">
-      <textarea class="form-control" id="postText" rows="3" required placeholder="Что у вас нового?"></textarea>
+      <textarea class="form-control" id="postText" rows="3" placeholder="Что у вас нового?" formControlName="postText"></textarea>
     </div>
     <div class="form-group">
       <label for="postImage" class="form-label">Обложка</label>
-      <input type="file" class="form-control" id="postImage" accept="image/*" >
+      <input type="file" class="form-control" id="postImage" accept="image/*" formControlName="postPost">
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Отправить</button>
