@@ -17,6 +17,7 @@ import { TokenInterceptor } from 'src/services/token-inceptors';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import { MakePostComponent } from './components/make-post/make-post.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {MatIconModule} from '@angular/material/icon';
     HeaderComponent,
     LoginComponent,
     FooterComponent,
-    UserComponent
+    UserComponent,
+    MakePostComponent
   ],
   imports: [
     BrowserModule,

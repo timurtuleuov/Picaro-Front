@@ -17,6 +17,7 @@
 
 
 <ng-container *ngIf="dataLoaded; else loadingSpinner">
+  <app-make-post></app-make-post>
 <div class="tweet-wrap" *ngFor="let post of posts">
   <div class="tweet-header">
     <img src="../../../assets/{{post.author.avatar | slice: 7}}" alt="" class="avator">
