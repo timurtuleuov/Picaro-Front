@@ -13,7 +13,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { UserComponent } from './components/user/user.component';
 import { TokenInterceptor } from 'src/services/token-inceptors';
 import { MakePostComponent } from './components/make-post/make-post.component';
-import { HelloComponent } from './components/hello/hello.component';
 
 //Angular Material
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -32,7 +31,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
     FooterComponent,
     UserComponent,
     MakePostComponent,
-    HelloComponent
   ],
   imports: [
     BrowserModule,
