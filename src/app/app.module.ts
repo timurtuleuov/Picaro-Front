@@ -12,12 +12,15 @@ import { LoginComponent } from './components/login/login.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserComponent } from './components/user/user.component';
 import { TokenInterceptor } from 'src/services/token-inceptors';
+import { MakePostComponent } from './components/make-post/make-post.component';
+import { HelloComponent } from './components/hello/hello.component';
 
 //Angular Material
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
-import { MakePostComponent } from './components/make-post/make-post.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 
 @NgModule({
@@ -28,7 +31,8 @@ import { MakePostComponent } from './components/make-post/make-post.component';
     LoginComponent,
     FooterComponent,
     UserComponent,
-    MakePostComponent
+    MakePostComponent,
+    HelloComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,8 @@ import { MakePostComponent } from './components/make-post/make-post.component';
     //Angular Material
     MatProgressSpinnerModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule
   ],
   providers: [
     {

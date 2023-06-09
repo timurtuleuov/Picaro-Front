@@ -12,7 +12,6 @@ export class PostService {
   
 
   constructor(private http: HttpClient) { 
-    this.getData();
   }
   getData(): Observable<Post[]> {
     const url = "http://localhost:8000/api/post/";
