@@ -22,8 +22,7 @@ export class TokenInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError(error => {
         if (error.status === 401) {
-          const refreshToken = this.tokenService.getRefreshToken();
-          return this.tokenService.refreshToken(refreshToken).pipe(
+          return this.tokenService.refreshToken().pipe(
             switchMap(newToken => {
               this.tokenService.setToken(newToken.access);
               // Retry the request with the new token

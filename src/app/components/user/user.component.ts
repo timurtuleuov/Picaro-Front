@@ -17,7 +17,6 @@ export class UserComponent implements OnInit{
     this.userInfo = localStorage.getItem('user');
     this.userInfo = JSON.parse(this.userInfo);
   }
-  avatar_route = "E:/Программирование/DJANGO+REACT/Scripts/CoreRoot"
   avatar: any;
   username!: string;
   userBio!: string;
@@ -29,7 +28,6 @@ export class UserComponent implements OnInit{
 
     this.postService.getPostByUser(this.userInfo.id).subscribe((data) => {
       this.posts = data;
-      console.log(this.posts)
       this.isLoading = false;
       this.dataLoaded = true;
     });
