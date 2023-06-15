@@ -22,5 +22,20 @@ export class PostService {
     const url = `http://localhost:8000/api/user/${user_id}/posts/`;
     return this.http.get<Post[]>(url);
   }
+  likePost(post_id: string) {
+    const url = `http://localhost:8000/api/post/${post_id}/like/`;
   
+    this.http.post(url, '').subscribe(
+      (response) => {
+        // Обработка успешного ответа от сервера
+        console.log('Лайк успешно добавлен!');
+        // Дополнительные действия при необходимости
+      },
+      (error) => {
+        // Обработка ошибки
+        console.error('Ошибка при добавлении лайка:', error);
+        // Дополнительные действия при необходимости
+      }
+    );
+  }
 }

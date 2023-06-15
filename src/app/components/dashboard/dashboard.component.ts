@@ -37,6 +37,12 @@ export class DashboardComponent implements OnInit{
     console.log(this.sendPostGroup.value.postText);
   console.log(this.sendPostGroup.value.postImage);
   }
+
+  like(post_id: string) {
+    this.postService.likePost(post_id);
+  }
+  
+
   ngOnInit() {
     
 
