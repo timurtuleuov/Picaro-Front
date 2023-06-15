@@ -38,4 +38,16 @@ export class PostService {
       }
     );
   }
+  removeLikePost(post_id: string) {
+    const url = `http://localhost:8000/api/post/${post_id}/remove_like/`;
+  
+    this.http.post(url, '').subscribe(
+      (response) => {
+        console.log('Лайк успешно удален!');
+      },
+      (error) => {
+        console.error('Ошибка при удалении лайка:', error);
+      }
+    );
+  }
 }
