@@ -38,9 +38,21 @@
     </div>
     
   </div>
-  <div class="tweet-img-wrap" *ngIf="post.cover !== null">
-    <img src="../../../assets/covers/{{post.cover | slice: 29}}" alt="" class="tweet-img">
+  
+  <!--Здесь картинки  -->
+  <div class="tweet-img-wrap" *ngIf="post.cover.length > 0">
+    <ng-container *ngIf="post.cover.length === 1">
+      <img src="../../..{{post.cover.image}}" alt="" class="tweet-img">
+    </ng-container>
+    
+    <ng-container *ngIf="post.cover.length > 1">
+      <ng-container *ngFor="let cover of post.cover">
+        <img src="../../..{{cover.image}}" alt="" class="tweet-img">
+      </ng-container>
+
+    </ng-container>
   </div>
+ <!-- Здесь картинки -->
  
   <div class="tweet-info-counts">
     

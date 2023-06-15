@@ -15,6 +15,10 @@ export class DashboardComponent implements OnInit{
   userInfo: any;
   avatar: any;
 
+  parse(object: any){
+    console.log(JSON.parse(object))
+    return JSON.parse(object);
+  }
   constructor(private postService: PostService){
     if (localStorage !== null){
     this.userInfo = localStorage.getItem('user');
