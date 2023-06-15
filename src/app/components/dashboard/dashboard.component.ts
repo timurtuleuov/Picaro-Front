@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { PostService } from 'src/services/post.service';
 import { Post } from 'src/interfaces/post';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -38,10 +38,25 @@ export class DashboardComponent implements OnInit{
   console.log(this.sendPostGroup.value.postImage);
   }
 
+  @ViewChild('postList', { static: true }) postList!: ElementRef;
   like(post_id: string) {
     this.postService.likePost(post_id);
+    const postElements = this.postList.nativeElement.getElementsByClassName('tweet-wrap');
+    for (let i = 0; i < postElements.length; i++) {
+      const postElement = postElements[i];
+      const postId = postElement.getAttribute('data-post-id');
+      if (postId === post_id) {
+        // Обновите только содержимое или стиль блока поста
+        postElement.querySelector('.like-button').setAttribute('disabled', 'disabled');
+        postElement.querySelector('.like-status').textContent = 'Liked!';
+        break;
+      }
+    }
+  
+    
   }
   
+
 
   ngOnInit() {
     
