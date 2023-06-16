@@ -26,16 +26,8 @@ export class PostService {
     const url = `http://localhost:8000/api/post/${post_id}/like/`;
     return this.http.post(url, '');
   }
-  removeLikePost(post_id: string) {
+  removeLikePost(post_id: string): Observable<any>  {
     const url = `http://localhost:8000/api/post/${post_id}/remove_like/`;
-  
-    this.http.post(url, '').subscribe(
-      (response) => {
-        console.log('Лайк успешно удален!');
-      },
-      (error) => {
-        console.error('Ошибка при удалении лайка:', error);
-      }
-    );
+    return this.http.post(url, '')
   }
 }

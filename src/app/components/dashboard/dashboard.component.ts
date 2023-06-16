@@ -40,23 +40,39 @@ export class DashboardComponent implements OnInit{
 
 
   like(post_id: string) {
-    this.postService.likePost(post_id).subscribe(
-      (response) => {
-        console.log(response)
-        const likedPost = this.posts.find((post: Post) => post.id === post_id);
-        if (likedPost) {
+    const likedPost = this.posts.find((post: Post) => post.id === post_id);
+    console.log(likedPost.liked)
+    if (likedPost.liked){
+      this.postService.removeLikePost(post_id).subscribe(
+        (response) => {
           likedPost.likes_count = response.likes_count;
+          likedPost.liked = false;
+          console.log("Лайк успешно удален!");
+        }, 
+        (error) => {
+          console.error('Ошибка при удалении лайка:', error);
         }
-        // Обработка успешного ответа от сервера
-        console.log('Лайк успешно добавлен!');
-        // Дополнительные действия при необходимости
-      },
-      (error) => {
-        // Обработка ошибки
-        console.error('Ошибка при добавлении лайка:', error);
-        // Дополнительные действия при необходимости
+      )
+    } else 
+      {
+
+      
+      this.postService.likePost(post_id).subscribe(
+        (response) => {
+          likedPost.likes_count = response.likes_count;
+          likedPost.liked = true;
+        
+            // Обработка успешного ответа от сервера
+          console.log('Лайк успешно добавлен!');
+            // Дополнительные действия при необходимости
+          },
+        (error) => {
+          // Обработка ошибки
+          console.error('Ошибка при добавлении лайка:', error);
+          // Дополнительные действия при необходимости
       }
     );
+  }
   
     
   }
