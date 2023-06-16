@@ -38,20 +38,25 @@ export class DashboardComponent implements OnInit{
   console.log(this.sendPostGroup.value.postImage);
   }
 
-  @ViewChild('postList', { static: true }) postList!: ElementRef;
+
   like(post_id: string) {
-    this.postService.likePost(post_id);
-    const postElements = this.postList.nativeElement.getElementsByClassName('tweet-wrap');
-    for (let i = 0; i < postElements.length; i++) {
-      const postElement = postElements[i];
-      const postId = postElement.getAttribute('data-post-id');
-      if (postId === post_id) {
-        // Обновите только содержимое или стиль блока поста
-        postElement.querySelector('.like-button').setAttribute('disabled', 'disabled');
-        postElement.querySelector('.like-status').textContent = 'Liked!';
-        break;
+    this.postService.likePost(post_id).subscribe(
+      (response) => {
+        console.log(response)
+        const likedPost = this.posts.find((post: Post) => post.id === post_id);
+        if (likedPost) {
+          likedPost.likes_count = response.likes_count;
+        }
+        // Обработка успешного ответа от сервера
+        console.log('Лайк успешно добавлен!');
+        // Дополнительные действия при необходимости
+      },
+      (error) => {
+        // Обработка ошибки
+        console.error('Ошибка при добавлении лайка:', error);
+        // Дополнительные действия при необходимости
       }
-    }
+    );
   
     
   }
