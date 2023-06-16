@@ -8,11 +8,6 @@ img {
   max-width:100%;
   
 }
-.headers-align {
-  width: 700px;
-  left: 20%;
-  margin: 0 auto;
-}
 .avator {
   border-radius:100px;
   width:68px;
@@ -98,7 +93,6 @@ mat-progress-spinner {
   top: 25%;
   margin-bottom: 300px;
 }
-
 
 @media screen and (max-width:430px){
   body {
