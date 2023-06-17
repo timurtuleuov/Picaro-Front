@@ -87,6 +87,51 @@ img {
   stroke-linejoin: round;
   margin-right: 4px;
 }
+.post_com{
+  display: flex;
+  max-height: 7vh;
+  padding-top: 40px;
+  padding-left: 60px;
+}
+.post_com .img{
+  margin-top: -10px;
+}
+.post_com .img img{
+  width: 40px;
+  height: 30px;
+}
+.post_com input{
+  padding-left: 5px;
+  padding-top: -50px;
+  width: 500px;
+  outline: none;
+  border: none;
+  transition: .2s;
+}
+.post_com input:focus{
+  width: 500px;
+  border: none;
+  border-bottom: 2px solid rgb(74, 182, 255);
+}
+.post_com button{
+
+  color: rgb(74, 182, 255);
+  background-color: white;
+  font-weight: 600;
+  outline: none;
+  border: none;
+  font-weight: 300;
+
+}
+.post_com button:hover{
+
+  cursor: pointer;
+  color: black;
+  background-color: white;
+  font-weight: 300;
+  outline: none;
+  border: none;
+}
 
 mat-progress-spinner {
   left: 45%;
