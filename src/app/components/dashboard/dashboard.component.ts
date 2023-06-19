@@ -47,7 +47,7 @@ export class DashboardComponent implements OnInit{
         (response) => {
           likedPost.likes_count = response.likes_count;
           likedPost.liked = false;
-          console.log("Лайк успешно удален!");
+          console.log('Лайк успешно удален!');
         }, 
         (error) => {
           console.error('Ошибка при удалении лайка:', error);
@@ -76,12 +76,36 @@ export class DashboardComponent implements OnInit{
   
     
   }
+  sendCommentGroup!: FormGroup;
+  buildSendCommentForm() {
+    this.sendCommentGroup = new FormGroup({
+      'body': new FormControl('', Validators.required)
+    });
+  }
+  sendComment(author_id: string, post_id: string, body: string) {
+    this.postService.sendComment(post_id, author_id, body).subscribe(
+      (response) => {
+        console.log('Комменты успешно загружены!');
+      },
+      (error) => {
+        console.error('Комменты не удалось загрузить:', error);
+      }
+    );
+  }
   
-
+  onAdd(author: string, post: string) {
+    console.log(this.sendCommentGroup.value.body)
+    this.postService.sendComment(post, author, this.sendCommentGroup.value.body).subscribe(
+      (response) => {
+        console.log('Комменты успешно загружены!');
+      },
+      (error) => {
+        console.error('Коммент не удалось отправить:', error);
+      }
+    );
+  };
 
   ngOnInit() {
-    
-
     this.postService.getData().subscribe((data) => {
       this.posts = data;
       this.isLoading = false;
