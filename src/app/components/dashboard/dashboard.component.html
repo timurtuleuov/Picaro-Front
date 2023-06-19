@@ -89,10 +89,12 @@
         <div class="img">
           <img src="assets/img/svg/face-smile-regular.svg" />
         </div>
-        <form [formGroup]="sendCommentGroup" (submit)="onAdd(post.id, post.author.id)" *ngIf="true" >
+
+        <form [formGroup]="sendCommentGroup" (submit)="onAdd(post.id, post.author.id)">
           <input type="text" placeholder="Написать комментарий" formControlName="body"> 
           <button type="submit">Добавить</button>
-        </form>        
+        </form>      
+
       </div>
     </div>
   </ng-container>

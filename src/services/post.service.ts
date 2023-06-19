@@ -37,6 +37,6 @@ export class PostService {
   }
   sendComment(post_id:string, author_id:string, body:string): Observable<any> {
     const url = `http://localhost:8000/api/post/${post_id}/comment/`;
-    return this.http.post(url, {"post": post_id, "author": author_id, "body": body})
+    return this.http.post(url, {"post": post_id, "author": author_id, "body": body, "post_uuid": post_id})
   }
 }
