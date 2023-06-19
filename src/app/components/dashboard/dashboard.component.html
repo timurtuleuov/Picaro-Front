@@ -96,6 +96,21 @@
         </form>      
 
       </div>
+      <div class="comment-list">
+        Комментарии
+        <ul *ngFor="let comment of post.comment">
+          <div class="comment">
+            <div class="author-avatar">
+              <img src="../../../assets/{{comment.author.avatar | slice: 7}}" alt="Author Avatar">
+            </div>
+            <div class="comment-content">
+              <div class="author-name">{{comment.author.username}}</div>
+              <div class="comment-text">{{comment.body}}</div>
+              <div class="comment-date">{{comment.updated | date: 'mediumDate'}}</div>
+            </div>
+          </div>
+        </ul>
+      </div>
     </div>
   </ng-container>
 

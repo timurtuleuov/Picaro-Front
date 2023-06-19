@@ -103,13 +103,13 @@ img {
 .post_com input{
   padding-left: 5px;
   padding-top: -50px;
-  width: 500px;
+  width: 450px;
   outline: none;
   border: none;
   transition: .2s;
 }
 .post_com input:focus{
-  width: 500px;
+  width: 450px;
   border: none;
   border-bottom: 2px solid rgb(74, 182, 255);
 }
@@ -137,6 +137,43 @@ mat-progress-spinner {
   left: 45%;
   top: 25%;
   margin-bottom: 300px;
+}
+/* Комментарии */
+.comment-list{
+  margin-left: 65px;
+  margin-top: 20px;
+  
+}
+.comment {
+  
+  border-top: .8px solid #e6ecf0;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.author-avatar {
+  margin-right: 10px;
+}
+
+.author-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.author-name {
+  font-weight: bold;
+}
+
+.comment-text {
+  margin-top: 5px;
+}
+
+.comment-date {
+  font-size: 12px;
+  color: #999;
 }
 
 @media screen and (max-width:430px){
