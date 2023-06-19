@@ -82,18 +82,9 @@ export class DashboardComponent implements OnInit{
       'body': new FormControl('', Validators.required)
     });
   }
-  sendComment(author_id: string, post_id: string, body: string) {
-    this.postService.sendComment(post_id, author_id, body).subscribe(
-      (response) => {
-        console.log('Комменты успешно загружены!');
-      },
-      (error) => {
-        console.error('Комменты не удалось загрузить:', error);
-      }
-    );
-  }
+
   
-  onAdd(author: string, post: string) {
+  onAdd( post: string, author: string,) {
     console.log(this.sendCommentGroup.value.body)
     this.postService.sendComment(post, author, this.sendCommentGroup.value.body).subscribe(
       (response) => {
@@ -106,6 +97,7 @@ export class DashboardComponent implements OnInit{
   };
 
   ngOnInit() {
+    this.buildSendCommentForm();
     this.postService.getData().subscribe((data) => {
       this.posts = data;
       this.isLoading = false;
