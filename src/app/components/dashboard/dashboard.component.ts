@@ -88,6 +88,7 @@ export class DashboardComponent implements OnInit{
     console.log(this.sendCommentGroup.value.body)
     this.postService.sendComment(post, author, this.sendCommentGroup.value.body).subscribe(
       (response) => {
+        this.sendCommentGroup.reset();
         this.loadData();
       },
       (error) => {
