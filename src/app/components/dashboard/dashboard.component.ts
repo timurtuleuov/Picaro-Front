@@ -88,20 +88,22 @@ export class DashboardComponent implements OnInit{
     console.log(this.sendCommentGroup.value.body)
     this.postService.sendComment(post, author, this.sendCommentGroup.value.body).subscribe(
       (response) => {
-        console.log('Комменты успешно загружены!');
+        this.loadData();
       },
       (error) => {
         console.error('Коммент не удалось отправить:', error);
       }
     );
   };
-
-  ngOnInit() {
-    this.buildSendCommentForm();
+  loadData(): void{
     this.postService.getData().subscribe((data) => {
       this.posts = data;
       this.isLoading = false;
       this.dataLoaded = true;
     });
+  }
+  ngOnInit() {
+    this.buildSendCommentForm();
+    this.loadData();
   }
 }
