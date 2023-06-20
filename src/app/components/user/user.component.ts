@@ -82,8 +82,6 @@ export class UserComponent implements OnInit{
   loadData(): void{
     this.postService.getPostByUser(this.userInfo.id).subscribe((data) => {
       this.posts = data;
-      console.log(this.posts)
-      console.log(data)
       this.isLoading = false;
       this.dataLoaded = true;
     });
@@ -92,7 +90,7 @@ export class UserComponent implements OnInit{
     this.username = this.userInfo.username;
     this.userBio = this.userInfo.bio;
     this.avatar = this.userInfo.avatar;
-
+    this.buildSendCommentForm();
     this.loadData()
 
     
