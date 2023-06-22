@@ -8,6 +8,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
+//TODO Make sendPost function
 export class DashboardComponent implements OnInit{
   posts: any;
   dataLoaded = false;
@@ -35,7 +37,7 @@ export class DashboardComponent implements OnInit{
   }
   onSend():void{
     console.log(this.sendPostGroup.value.postText);
-  console.log(this.sendPostGroup.value.postImage);
+    this.postService.sendPost()
   }
 
 
@@ -104,6 +106,7 @@ export class DashboardComponent implements OnInit{
     });
   }
   ngOnInit() {
+    this.buildSendPostForm();
     this.buildSendCommentForm();
     this.loadData();
   }

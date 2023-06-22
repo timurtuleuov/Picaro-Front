@@ -115,7 +115,7 @@ footer {
   align-items: center;
 }
 .tweet-img-wrap img {
-  min-width: 400px;
+  max-width: 557px;
 }
 
 .tweet-info-counts {

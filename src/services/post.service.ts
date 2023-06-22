@@ -21,7 +21,7 @@ export class PostService {
     const url = `http://localhost:8000/api/user/${user_id}/posts/`;
     return this.http.get<Post[]>(url);
   }
-
+  //TODO Make sendPost function
   sendPost(){
     const url = "http://localhost:8000/api/post/";  
     return this.http.post(url, '')
