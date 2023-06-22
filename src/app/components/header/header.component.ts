@@ -27,8 +27,6 @@ export class HeaderComponent implements OnInit{
      this.router.navigate(['/user', this.slug])
     }
    
-    
-    // username = this.user.username;
     checkLocalStorage(): void {
       if (localStorage === null) {
         this.isLogged = false;

@@ -4,7 +4,6 @@
     
     <div class="login" *ngIf="!this.isLogged">
         <a  routerLink="/login" class="login"><mat-icon class="icon">fingerprint</mat-icon>Authorization</a>
-
     </div>
     <div class="login" *ngIf="this.isLogged">
         <button (click)="slugIt()">
