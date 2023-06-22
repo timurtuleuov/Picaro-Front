@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostService } from 'src/services/post.service';
 import { Post } from 'src/interfaces/post';
-
-
+import { UserService } from 'src/services/user.service';
+import { User } from 'src/interfaces/user';
+import {ActivatedRoute} from "@angular/router";
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -14,7 +15,7 @@ export class UserComponent implements OnInit{
   posts: any;
   dataLoaded = false;
   isLoading = true;
-  constructor(private postService: PostService){
+  constructor(private postService: PostService, private userService: UserService, private route: ActivatedRoute){
     this.userInfo = localStorage.getItem('user');
     this.userInfo = JSON.parse(this.userInfo);
   }
@@ -86,7 +87,12 @@ export class UserComponent implements OnInit{
       this.dataLoaded = true;
     });
   }
+
+  getUserInfo(slug: string){
+
+  }
   ngOnInit(){
+    console.log(this.route.snapshot.params['slug']);
     this.username = this.userInfo.username;
     this.userBio = this.userInfo.bio;
     this.avatar = this.userInfo.avatar;
