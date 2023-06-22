@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit{
   slug!: string;
 
-  slug_name!: string;
+
   isLogged: any;
 
   userUnparse: any;
@@ -23,8 +23,8 @@ export class HeaderComponent implements OnInit{
     this.checkLocalStorage();
   }
   slugIt(){
-    this.slug_name = slug(this.slug)
-     this.router.navigate(['/user', this.slug_name])
+    
+     this.router.navigate(['/user', this.slug])
     }
    
     
