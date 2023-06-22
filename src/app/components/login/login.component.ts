@@ -90,6 +90,7 @@ export class LoginComponent implements OnInit{
           }
         }
         this.loginService.isLoged = true;
+        this.router.navigate(['/'])
         console.log(this.loginService.isLoged)
 
       },
