@@ -21,7 +21,7 @@ export class UserComponent implements OnInit{
   }
   avatar: any;
   username!: string;
-  userBio!: string;
+  userBio!: string | null;
   userPosts!: object;
   like(post_id: string) {
     const likedPost = this.posts.find((post: Post) => post.id === post_id);
@@ -89,13 +89,15 @@ export class UserComponent implements OnInit{
   }
 
   getUserInfo(slug: string){
-
+    this.userService.getUserInfo(slug).subscribe((data) => {
+      this.username = data.username;
+      this.userBio = data.bio;
+      this.avatar = data.avatar;
+    })
   }
   ngOnInit(){
-    console.log(this.route.snapshot.params['slug']);
-    this.username = this.userInfo.username;
-    this.userBio = this.userInfo.bio;
-    this.avatar = this.userInfo.avatar;
+    this.getUserInfo(this.route.snapshot.params['slug'])
+    
     this.buildSendCommentForm();
     this.loadData()
 
