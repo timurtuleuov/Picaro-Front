@@ -11,6 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 //TODO Make sendPost function
 export class DashboardComponent implements OnInit{
+  author: any;
   posts: any;
   dataLoaded = false;
   isLoading = true;
@@ -86,9 +87,10 @@ export class DashboardComponent implements OnInit{
   }
 
   
-  onAdd( post: string, author: string,) {
+  onAdd( post: string) {
+    this.author = this.userInfo.id;
     console.log(this.sendCommentGroup.value.body)
-    this.postService.sendComment(post, author, this.sendCommentGroup.value.body).subscribe(
+    this.postService.sendComment(post, this.author, this.sendCommentGroup.value.body).subscribe(
       (response) => {
         this.sendCommentGroup.reset();
         this.loadData();

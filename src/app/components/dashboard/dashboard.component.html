@@ -90,7 +90,7 @@
           <img src="assets/img/svg/face-smile-regular.svg" />
         </div>
 
-        <form [formGroup]="sendCommentGroup" (submit)="onAdd(post.id, post.author.id)">
+        <form [formGroup]="sendCommentGroup" (submit)="onAdd(post.id)">
           <input type="text" placeholder="Написать комментарий" formControlName="body"> 
           <button type="submit">Добавить</button>
         </form>      
