@@ -5,7 +5,7 @@
       username: string;
       first_name: string;
       last_name: string;
-      bio: string;
+      bio: string | null;
       avatar: string | null;
       email: string;
       is_active: boolean;
