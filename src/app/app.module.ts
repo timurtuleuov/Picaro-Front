@@ -19,7 +19,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
-import { PickerModule } from '@ctrl/ngx-emoji-mart';
 
 
 @NgModule({
@@ -33,7 +32,7 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart';
     MakePostComponent,
   ],
   imports: [
-    PickerModule,
+    // PickerModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
