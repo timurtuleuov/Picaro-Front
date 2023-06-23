@@ -58,6 +58,12 @@ function shouldApplyInterceptor(request: HttpRequest<any>): boolean {
   if (request.url.includes('http://localhost:8000/api/post/')) {
     return false; 
   }
+  if (request.url.includes('http://localhost:8000/api/user/by_slug/<slug:slug>/')) {
+    return false; 
+  }
+  if (request.url.includes('http://localhost:8000/api/user/<slug:pk>/posts/')) {
+    return false;
+  }
 
   return true; 
 }

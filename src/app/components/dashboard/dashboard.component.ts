@@ -15,19 +15,19 @@ export class DashboardComponent implements OnInit{
   posts: any;
   dataLoaded = false;
   isLoading = true;
-  userInfo: any;
-  avatar: any;
+  userInfo!: any;
+  avatar!: any;
 
   parse(object: any){
     console.log(JSON.parse(object))
     return JSON.parse(object);
   }
   constructor(private postService: PostService){
-    if (localStorage !== null){
-    this.userInfo = localStorage.getItem('user');
-    this.userInfo = JSON.parse(this.userInfo);
-    this.avatar = this.userInfo.avatar;
-    }
+    // if (localStorage !== null){
+    // this.userInfo = localStorage.getItem('user');
+    // this.userInfo = JSON.parse(this.userInfo);
+    // this.avatar = this.userInfo.avatar;
+    // }
   }
   sendPostGroup!: FormGroup;
   buildSendPostForm() {
