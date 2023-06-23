@@ -86,8 +86,14 @@
         </div>
       </div>
       <div class="post_com">
+        
         <div class="img">
-          <img src="assets/img/svg/face-smile-regular.svg" />
+          <button (click)="isEmojiPickerVisible = !isEmojiPickerVisible;">
+            <img src="assets/img/svg/face-smile-regular.svg" />
+          </button>
+
+          <emoji-mart class="emoji-mart" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)" title="Choose your emoji"></emoji-mart>
+          
         </div>
 
         <form [formGroup]="sendCommentGroup" (submit)="onAdd(post.id)">

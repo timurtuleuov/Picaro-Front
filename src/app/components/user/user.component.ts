@@ -19,6 +19,7 @@ export class UserComponent implements OnInit{
     this.userInfo = localStorage.getItem('user');
     this.userInfo = JSON.parse(this.userInfo);
   }
+  userId!: string;
   avatar: any;
   username!: string;
   userBio!: string | null;
@@ -73,15 +74,15 @@ export class UserComponent implements OnInit{
     this.postService.sendComment(post, author, this.sendCommentGroup.value.body).subscribe(
       (response) => {
         this.sendCommentGroup.reset();
-        this.loadData();
+        this.loadData(this.userId);
       },
       (error) => {
         console.error('Коммент не удалось отправить:', error);
       }
     );
   };
-  loadData(): void{
-    this.postService.getPostByUser(this.userInfo.id).subscribe((data) => {
+  loadData(userId: string): void{
+    this.postService.getPostByUser(userId).subscribe((data) => {
       this.posts = data;
       this.isLoading = false;
       this.dataLoaded = true;
@@ -90,16 +91,18 @@ export class UserComponent implements OnInit{
 
   getUserInfo(slug: string){
     this.userService.getUserInfo(slug).subscribe((data) => {
+      this.userId = data.id;
       this.username = data.username;
       this.userBio = data.bio;
       this.avatar = data.avatar;
+      this.loadData(this.userId);
     })
   }
   ngOnInit(){
     this.getUserInfo(this.route.snapshot.params['slug'])
     
     this.buildSendCommentForm();
-    this.loadData()
+    // this.loadData()
 
     
   }
