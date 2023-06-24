@@ -17,17 +17,18 @@ export class DashboardComponent implements OnInit{
   isLoading = true;
   userInfo!: any;
   avatar!: any;
+  body!: string;
 
   parse(object: any){
     console.log(JSON.parse(object))
     return JSON.parse(object);
   }
   constructor(private postService: PostService){
-    // if (localStorage !== null){
-    // this.userInfo = localStorage.getItem('user');
-    // this.userInfo = JSON.parse(this.userInfo);
+    if (localStorage !== null){
+    this.userInfo = localStorage.getItem('user');
+    this.userInfo = JSON.parse(this.userInfo);
     // this.avatar = this.userInfo.avatar;
-    // }
+    }
   }
   sendPostGroup!: FormGroup;
   buildSendPostForm() {
@@ -101,10 +102,14 @@ export class DashboardComponent implements OnInit{
     );
   };
   isEmojiPickerVisible!: boolean;
-   public addEmoji(event: any) {
-    this.sendCommentGroup.value.body = event.emoji.native;
-      this.isEmojiPickerVisible = false;
-   }
+  public addEmoji(event: any) {
+    const commentControl = this.sendCommentGroup.get('body');
+    if (commentControl) {
+      const currentCommentValue = commentControl.value || '';
+      commentControl.setValue(currentCommentValue + event.emoji.native);
+    }
+    this.isEmojiPickerVisible = false;
+  }
   loadData(): void{
     this.postService.getData().subscribe((data) => {
       this.posts = data;
