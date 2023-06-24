@@ -68,10 +68,15 @@ export class UserComponent implements OnInit{
     });
   }
 
-  
-  onAdd( post: string, author: string,) {
+  isEmojiPickerVisible!: boolean;
+  public addEmoji(event: any) {
+    this.sendCommentGroup.value.body = `${this.sendCommentGroup.value.body}${event.emoji.native}`
+    this.isEmojiPickerVisible = false;
+  }
+  onAdd( post: string) {
+
     console.log(this.sendCommentGroup.value.body)
-    this.postService.sendComment(post, author, this.sendCommentGroup.value.body).subscribe(
+    this.postService.sendComment(post, this.userInfo.id, this.sendCommentGroup.value.body).subscribe(
       (response) => {
         this.sendCommentGroup.reset();
         this.loadData(this.userId);
