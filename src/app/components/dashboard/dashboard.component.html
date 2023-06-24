@@ -87,24 +87,18 @@
       </div>
       <div class="post_com">
         
-        <div class="img">
-          <!-- <button (click)="isEmojiPickerVisible = !isEmojiPickerVisible;"> -->
-            
-          <!-- </button> -->
+        <button (click)="isEmojiPickerVisible = !isEmojiPickerVisible;" class="img"><img src="assets/img/svg/face-smile-regular.svg" /></button>
+        <emoji-mart class="emoji-mart" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)" title="Choose your emoji"></emoji-mart>
 
-          <!-- <emoji-mart class="emoji-mart" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)" title="Choose your emoji"></emoji-mart> -->
-          <div class="emoji-container">
-            <button (click)="isEmojiPickerVisible = !isEmojiPickerVisible;"><img src="assets/img/svg/face-smile-regular.svg" /></button>
-            <br>
-            <emoji-mart class="emoji-mart" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)" title="Choose your emoji"></emoji-mart>
-          </div>
 
           <form [formGroup]="sendCommentGroup" (submit)="onAdd(post.id)">
+    
+
             <input type="text" [(ngModel)]="sendCommentGroup.value.body" placeholder="Написать комментарий" formControlName="body"> 
             <button type="submit">Добавить</button>
           </form>
     
-        </div>
+        
       </div>
       <div class="comment-list">
         Комментарии

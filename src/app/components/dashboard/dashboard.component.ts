@@ -103,11 +103,7 @@ export class DashboardComponent implements OnInit{
   };
   isEmojiPickerVisible!: boolean;
   public addEmoji(event: any) {
-    const commentControl = this.sendCommentGroup.get('body');
-    if (commentControl) {
-      const currentCommentValue = commentControl.value || '';
-      commentControl.setValue(currentCommentValue + event.emoji.native);
-    }
+    this.sendCommentGroup.value.body = `${this.sendCommentGroup.value.body}${event.emoji.native}`
     this.isEmojiPickerVisible = false;
   }
   loadData(): void{
