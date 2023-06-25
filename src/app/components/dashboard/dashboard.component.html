@@ -40,11 +40,12 @@
     </div>
     
   </div>
-  
+  {{post.cover.image}}
   <!--Здесь картинки  -->
   <div class="tweet-img-wrap" *ngIf="post.cover.length > 0">
-    <ng-container *ngIf="post.cover.length === 1">
-      <img src="../../..{{post.cover.image}}" alt="" class="tweet-img">
+    
+    <ng-container *ngIf="post.cover.length == 1">
+      <img src="../../..{{post.cover[0].image}}" alt="" class="tweet-img">
     </ng-container>
     
     <ng-container *ngIf="post.cover.length > 1">
