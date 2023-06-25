@@ -22,9 +22,9 @@ export class PostService {
     return this.http.get<Post[]>(url);
   }
   //TODO Make sendPost function
-  sendPost(){
+  sendPost(body: string, author: string, cover: any){
     const url = "http://localhost:8000/api/post/";  
-    return this.http.post(url, '')
+    return this.http.post(url, {"body": body, "author": author, "cover": cover})
   }
 
   likePost(post_id: string): Observable<any> {

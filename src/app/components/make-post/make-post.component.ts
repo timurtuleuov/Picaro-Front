@@ -1,13 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PostService } from 'src/services/post.service';
 
 @Component({
   selector: 'app-make-post',
   templateUrl: './make-post.component.html',
   styleUrls: ['./make-post.component.css']
 })
-export class MakePostComponent {
+export class MakePostComponent implements OnInit{
   sendPostGroup!: FormGroup;
+  userInfo: any;
+  author: any;
+  constructor(private postService: PostService){
+    if (localStorage !== null){
+      this.userInfo = localStorage.getItem('user');
+      this.userInfo = JSON.parse(this.userInfo);
+      this.author = this.userInfo.id;
+      // this.avatar = this.userInfo.avatar;
+      }
+  }
   buildSendPostForm() {
     this.sendPostGroup = new FormGroup({
       'postText': new FormControl('', ),
@@ -16,6 +27,10 @@ export class MakePostComponent {
   }
   onSend():void{
     console.log(this.sendPostGroup.value.postText);
-  console.log(this.sendPostGroup.value.postImage);
+    this.postService.sendPost(this.sendPostGroup.value.postText, this.author, this.sendPostGroup.value.postImage)
+  }
+  
+  ngOnInit(): void {
+    this.buildSendPostForm();
   }
 }

@@ -27,6 +27,7 @@ export class DashboardComponent implements OnInit{
     if (localStorage !== null){
     this.userInfo = localStorage.getItem('user');
     this.userInfo = JSON.parse(this.userInfo);
+    this.author = this.userInfo.id;
     // this.avatar = this.userInfo.avatar;
     }
   }
@@ -39,7 +40,7 @@ export class DashboardComponent implements OnInit{
   }
   onSend():void{
     console.log(this.sendPostGroup.value.postText);
-    this.postService.sendPost()
+    this.postService.sendPost(this.sendCommentGroup.value.postText, this.author, this.sendCommentGroup.value.postImage)
   }
 
 
@@ -89,7 +90,7 @@ export class DashboardComponent implements OnInit{
 
   
   onAdd( post: string) {
-    this.author = this.userInfo.id;
+    
     console.log(this.sendCommentGroup.value.body)
     this.postService.sendComment(post, this.author, this.sendCommentGroup.value.body).subscribe(
       (response) => {
