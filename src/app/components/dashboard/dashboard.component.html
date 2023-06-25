@@ -29,9 +29,11 @@
   </mat-accordion>
 <div class="tweet-wrap" *ngFor="let post of posts" #postList>
   <div class="tweet-header">
-    <img src="../../../assets/{{post.author.avatar | slice: 7}}" alt="" class="avator">
+    <a routerLink='/user/{{post.author.slug}}'>
+      <img src="../../../assets/{{post.author.avatar | slice: 7}}" alt="" class="avator">
+    </a>
     <div class="tweet-header-info">
-      {{post.author.username}} <span>@{{post.author.email}}</span><span>. {{post.created | date: 'mediumDate'}}
+      <a routerLink='/user/{{post.author.slug}}'>{{post.author.username}}</a> <span>@{{post.author.email}}</span><span>. {{post.created | date: 'mediumDate'}}
 </span>
       <p>{{post.body}}</p>
       
@@ -100,10 +102,12 @@
         <ul *ngFor="let comment of post.comment">
           <div class="comment">
             <div class="author-avatar">
-              <img src="../../../assets/{{comment.author.avatar | slice: 7}}" alt="Author Avatar">
+              <a routerLink='/user/{{comment.author.slug}}'> 
+                <img src="../../../assets/{{comment.author.avatar | slice: 7}}" alt="Author Avatar">
+              </a>
             </div>
             <div class="comment-content">
-              <div class="author-name">{{comment.author.username}}</div>
+              <div class="author-name"><a routerLink='/user/{{comment.author.slug}}'> {{comment.author.username}}</a></div>
               <div class="comment-text">{{comment.body}}</div>
               <div class="comment-date">{{comment.updated | date: 'mediumDate'}}</div>
             </div>

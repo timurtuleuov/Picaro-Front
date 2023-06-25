@@ -8,6 +8,10 @@ img {
   max-width:100%;
   
 }
+a{
+  color: black;
+  text-decoration: none;
+}
 .avator {
   border-radius:100px;
   width:68px;
