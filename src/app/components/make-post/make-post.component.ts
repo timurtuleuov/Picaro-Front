@@ -26,7 +26,7 @@ export class MakePostComponent implements OnInit{
     });
   }
   onSend():void{
-    console.log(this.sendPostGroup.value.postText);
+    console.log(this.sendPostGroup.value.postImage);
     this.postService.sendPost(this.sendPostGroup.value.postText, this.author, this.sendPostGroup.value.postImage).subscribe(
       (data) => {
         console.log(data);

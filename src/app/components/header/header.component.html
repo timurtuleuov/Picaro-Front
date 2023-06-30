@@ -7,7 +7,7 @@
     </div>
     <div class="login" *ngIf="this.isLogged">
         <button (click)="slugIt()">
-            Hello {{username}}
+            <img src="../../..{{user.avatar}}" alt="">{{username}}
         </button>
     </div>        
 </mat-toolbar>
