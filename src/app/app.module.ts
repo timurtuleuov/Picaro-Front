@@ -20,6 +20,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart';
     FooterComponent,
     UserComponent,
     MakePostComponent,
+    NavigationComponent,
   ],
   imports: [
     PickerModule,

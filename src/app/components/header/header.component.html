@@ -7,10 +7,11 @@
     </div>
     <div class="login" *ngIf="this.isLogged">
         
-            <mat-expansion-panel (click)="slugIt()">
+            <mat-expansion-panel (click)="slugIt()" class=".mat-expansion-panel">
                 <mat-expansion-panel-header>
-                    <img src="../../..{{user.avatar}}" alt=""> {{username}}
+                    <img src="../../..{{user.avatar}}" alt="">
                 </mat-expansion-panel-header>
+                Редактировать страницу
             </mat-expansion-panel>
             
             
