@@ -17,7 +17,7 @@
 
 
 <ng-container *ngIf="dataLoaded; else loadingSpinner">
-  <mat-accordion class="headers-align">
+  <!-- <mat-accordion class="headers-align">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
           <mat-panel-title>
@@ -26,7 +26,7 @@
         </mat-expansion-panel-header>
         <app-make-post></app-make-post>
     </mat-expansion-panel>
-  </mat-accordion>
+  </mat-accordion> -->
 <div class="tweet-wrap" *ngFor="let post of posts" #postList>
   <div class="tweet-header">
     <a routerLink='/user/{{post.author.slug}}'>

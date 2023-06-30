@@ -6,8 +6,15 @@
         <a  routerLink="/login" class="login"><mat-icon class="icon">fingerprint</mat-icon>Authorization</a>
     </div>
     <div class="login" *ngIf="this.isLogged">
-        <button (click)="slugIt()">
-            <img src="../../..{{user.avatar}}" alt="">{{username}}
-        </button>
-    </div>        
+        
+            <mat-expansion-panel (click)="slugIt()">
+                <mat-expansion-panel-header>
+                    <img src="../../..{{user.avatar}}" alt=""> {{username}}
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+            
+            
+       
+    </div>       
+
 </mat-toolbar>
