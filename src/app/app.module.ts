@@ -21,6 +21,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     UserComponent,
     MakePostComponent,
     NavigationComponent,
+    EditUserComponent,
   ],
   imports: [
     PickerModule,

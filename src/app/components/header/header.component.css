@@ -19,6 +19,15 @@ img {
 	height: 50px;
 	border-radius: 50%;
 }
+/* :host-context ::ng-deep .mat-toolbar-row, .mat-toolbar-single-row{
+	display: flex;
+    box-sizing: border-box;
+    padding: 0 16px;
+    width: 100%;
+    flex-direction: row;
+
+    white-space: nowrap;
+} */
 
 :host-context ::ng-deep .mat-expansion-panel{
     background: transparent;
@@ -37,4 +46,14 @@ img {
 }
 .mat-expansion-panel:not([class*='mat-elevation-z']) {
     box-shadow: none;
+}
+:host ::ng-deep .mat-expansion-panel-body {
+	
+	padding: -50px 50px 0 ;
+	color: black;
+	background: white;
+}
+
+.mat-expansion-panel:not(.mat-expanded):not([aria-disabled=true]) .mat-expansion-panel-header:hover {
+	background: transparent;
 }
