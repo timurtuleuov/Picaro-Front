@@ -34,7 +34,23 @@
     </a>
     <div class="tweet-header-info">
       <a routerLink='/user/{{post.author.slug}}'>{{post.author.username}}</a> <span>@{{post.author.email}}</span><span>. {{post.created | date: 'mediumDate'}}
-        <mat-icon>more_vert</mat-icon>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>dialpad</mat-icon>
+            <span>Редактировать пост</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>voicemail</mat-icon>
+            <span>Поделиться</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon>
+            <span>Удалить</span>
+          </button>
+        </mat-menu>
 </span>
       <p>{{post.body}}</p>
       

@@ -22,6 +22,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
     MatProgressSpinnerModule,
     MatToolbarModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatMenuModule,
   ],
   providers: [
     {
