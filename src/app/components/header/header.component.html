@@ -6,7 +6,6 @@
         <a  routerLink="/login" class="login"><mat-icon class="icon">fingerprint</mat-icon>Authorization</a>
     </div>
     <div class="login" *ngIf="this.isLogged">
-        <!--  -->
             <mat-expansion-panel  class=".mat-expansion-panel">
                 <mat-expansion-panel-header>
                     <img src="../../..{{user.avatar}}" (click)="slugIt()" alt="">
@@ -15,9 +14,5 @@
                     Редактировать страницу
                 </a>
             </mat-expansion-panel>
-            
-            
-       
     </div>       
-
 </mat-toolbar>

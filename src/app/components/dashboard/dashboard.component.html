@@ -34,6 +34,7 @@
     </a>
     <div class="tweet-header-info">
       <a routerLink='/user/{{post.author.slug}}'>{{post.author.username}}</a> <span>@{{post.author.email}}</span><span>. {{post.created | date: 'mediumDate'}}
+        <mat-icon>more_vert</mat-icon>
 </span>
       <p>{{post.body}}</p>
       
