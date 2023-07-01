@@ -26,6 +26,10 @@ export class PostService {
     const url = "http://localhost:8000/api/post/";  
     return this.http.post(url, {"body": body, "author": author, "cover": cover})
   }
+  deletePost(post_id: string): Observable<Post[]> {
+    const url = `http://localhost:8000/api/post/${post_id}/`;
+    return this.http.delete<Post[]>(url);
+  }
 
   likePost(post_id: string): Observable<any> {
     const url = `http://localhost:8000/api/post/${post_id}/like/`;

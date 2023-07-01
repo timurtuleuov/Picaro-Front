@@ -75,12 +75,22 @@ export class DashboardComponent implements OnInit{
           // Обработка ошибки
           console.error('Ошибка при добавлении лайка:', error);
           // Дополнительные действия при необходимости
+        }
+      );  
+    }
+  }
+
+  deletePost(post_id: string) {
+    this.postService.deletePost(post_id).subscribe(
+      (response) => {
+        console.log("Пост удален")
+        this.loadData();
+      }, (error) => {
+        console.error("Ошибка при удалении поста:", error);
       }
     );
   }
-  
-    
-  }
+
   sendCommentGroup!: FormGroup;
   buildSendCommentForm() {
     this.sendCommentGroup = new FormGroup({

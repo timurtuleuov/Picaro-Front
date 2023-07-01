@@ -46,7 +46,7 @@
             <mat-icon>voicemail</mat-icon>
             <span>Поделиться</span>
           </button>
-          <button mat-menu-item>
+          <button mat-menu-item (click)="deletePost(post.id)">
             <mat-icon>notifications_off</mat-icon>
             <span>Удалить</span>
           </button>
